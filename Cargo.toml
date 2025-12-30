@@ -1,0 +1,52 @@
+[package]
+name = "shredstream-tui"
+version = "0.1.0"
+edition = "2021"
+description = "Terminal UI for monitoring Jito ShredStream proxy metrics and data"
+authors = ["ShredStream TUI"]
+license = "MIT"
+
+[dependencies]
+# TUI
+ratatui = { version = "0.29", features = ["crossterm"] }
+crossterm = { version = "0.28", features = ["event-stream"] }
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+tokio-stream = "0.1"
+
+# gRPC
+tonic = { version = "0.13", features = ["tls-webpki-roots"] }
+prost = "0.13"
+prost-types = "0.13"
+
+# CLI
+clap = { version = "4", features = ["derive", "env"] }
+
+# Solana types (for deserializing entries)
+solana-sdk = "=2.2.1"
+solana-entry = "=2.2.1"
+bincode = "1.3"
+
+# Utilities
+anyhow = "1.0"
+thiserror = "2"
+chrono = "0.4"
+humantime = "2.1"
+num-format = "0.4"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Data structures
+dashmap = "5"
+parking_lot = "0.12"
+
+# Jito protos (using path to local shredstream-proxy)
+jito-protos = { path = "../shredstream-proxy/jito_protos" }
+
+[build-dependencies]
+tonic-build = "0.13"
+
+[[bin]]
+name = "shredstream-tui"
+path = "src/main.rs"
