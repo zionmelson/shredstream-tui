@@ -1,5 +1,6 @@
 mod client;
 mod events;
+mod programs;
 mod state;
 mod ui;
 
@@ -111,7 +112,7 @@ async fn run_app(
         // Process any pending client messages (non-blocking)
         while let Ok(msg) = client_rx.try_recv() {
             match msg {
-                ClientMessage::EntriesReceived { slot: _, entries: _ } => {
+                ClientMessage::EntriesReceived { .. } => {
                     // Entries are already processed in the client
                     // We could add additional processing here if needed
                 }
