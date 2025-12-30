@@ -1,8 +1,8 @@
 # ShredStream TUI
 
-A terminal user interface (TUI) for monitoring the Jito ShredStream proxy in real-time.
+A terminal user interface (TUI) for monitoring the Jito ShredStream proxy in real-time. 😛
 
-![ShredStream TUI](https://via.placeholder.com/800x400?text=ShredStream+TUI)
+[ShredStream TUI](https://via.placeholder.com/800x400?text=ShredStream+TUI)
 
 ## Features
 
